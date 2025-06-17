@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,12 +9,12 @@ public class PlayerMovement : MonoBehaviour
 	[SerializeField] private float moveSpeed = 6f;
 	[SerializeField] private float jumpForce = 10f;
 	[SerializeField] private Animator playerAnimator;
-	[SerializeField] private SpriteRenderer playerSpriteRenderer;
 	[SerializeField] private BoxCollider2D playerCollider;
 	[SerializeField] private LayerMask terrainLayer;
 
 	private bool jumpCheck = false;
-	private GameObject currentPlatform = null;
+	private bool facingRight = true;
+    private GameObject currentPlatform = null;
 
 	void Update()
 	{
@@ -58,14 +59,14 @@ public class PlayerMovement : MonoBehaviour
 	{
 		if (playerRigidbody.velocity.x < 0)
 		{
-			playerSpriteRenderer.flipX = true;
-		}
+            if (facingRight) Flip();
+        }
 		else if (playerRigidbody.velocity.x > 0)
 		{
-			playerSpriteRenderer.flipX = false;
-		}
+			if (!facingRight) Flip();
+        }
 
-		if (Input.anyKey == true)
+		if (Math.Abs(playerRigidbody.velocity.x) > 0.1f)
 		{
 			playerAnimator.SetBool("IsMove", true);
 		}
@@ -113,4 +114,9 @@ public class PlayerMovement : MonoBehaviour
 			currentPlatform = null;
 		}
 	}
+	private void Flip()
+	{
+		facingRight = !facingRight;
+		transform.Rotate(0f, 180f, 0f);
+    }
 }

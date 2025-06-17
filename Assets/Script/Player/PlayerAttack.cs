@@ -16,7 +16,7 @@ public class PlayerAttack : MonoBehaviour
 
         if (bulletScript != null)
         {
-            Vector2 fireDirection = transform.localScale.x < 0 ? Vector2.left : Vector2.right;
+            Vector2 fireDirection = transform.rotation.y < 0 ? Vector2.left : Vector2.right;
             bulletScript.SerDirection(fireDirection);
         }
     }
