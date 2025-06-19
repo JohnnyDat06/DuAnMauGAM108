@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -8,23 +9,63 @@ public class PlayerMovement : MonoBehaviour
 	[SerializeField] private Rigidbody2D playerRigidbody;
 	[SerializeField] private float moveSpeed = 6f;
 	[SerializeField] private float jumpForce = 10f;
-	[SerializeField] private Animator playerAnimator;
+	[SerializeField] public Animator playerAnimator;
 	[SerializeField] private BoxCollider2D playerCollider;
 	[SerializeField] private LayerMask terrainLayer;
+	[SerializeField] private TextMeshProUGUI coinText;
 
-	private bool jumpCheck = false;
+    [SerializeField] private float climbSpeed = 3f;
+    private float vertical;
+	private int coinCount = 0;
+    private bool isClimbing = false;
+    private bool isOnLadder = false;
+	private bool canMove = true;
+
+    private bool jumpCheck = false;
 	private bool facingRight = true;
     private GameObject currentPlatform = null;
 
 	void Update()
 	{
-		Movement();
-		UpdateAnimator();
-	}
+		if (canMove)
+		{
+			Movement();
+			UpdateAnimator();
+		}
+		ClimbLadder();
+    }
 
+    private void FixedUpdate()
+    {
+        if (isClimbing == true)
+        {
+            playerRigidbody.gravityScale = 0f;
+            playerRigidbody.velocity = new Vector2(playerRigidbody.velocity.x, vertical * climbSpeed);
+        }
+        else
+        {
+            playerRigidbody.gravityScale = 2f;
+        }
+    }
+
+    private void ClimbLadder()
+	{
+        vertical = Input.GetAxis("Vertical");
+
+        if (isOnLadder == true && Mathf.Abs(vertical) > .1f)
+        {
+            isClimbing = true;
+			playerAnimator.SetBool("IsClimb", true);
+		}
+		else
+		{
+			isClimbing = false;
+        }
+    }
 	private void Movement()
 	{
-		float horizontal = Input.GetAxis("Horizontal");
+		if(!canMove) return;
+        float horizontal = Input.GetAxis("Horizontal");
 		playerRigidbody.velocity = new Vector2(horizontal * moveSpeed, playerRigidbody.velocity.y);
 		if (Input.GetKeyDown(KeyCode.Space) && IsGrounded())
 		{
@@ -57,7 +98,8 @@ public class PlayerMovement : MonoBehaviour
 
 	private void UpdateAnimator()
 	{
-		if (playerRigidbody.velocity.x < 0)
+		if(!canMove) return;
+        if (playerRigidbody.velocity.x < 0)
 		{
             if (facingRight) Flip();
         }
@@ -118,5 +160,36 @@ public class PlayerMovement : MonoBehaviour
 	{
 		facingRight = !facingRight;
 		transform.Rotate(0f, 180f, 0f);
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Ladder"))
+        {
+            isOnLadder = true;
+        }
+        if (other.CompareTag("Coin"))
+        {
+			coinCount++;
+			coinText.text = "" + coinCount;
+            Destroy(other.gameObject);
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag("Ladder"))
+        {
+			playerAnimator.SetBool("IsClimb", false);
+            isOnLadder = false;
+            isClimbing = false;
+        }
+    }
+    public void TriggerDeathAnimation()
+    {
+        canMove = false;
+        playerAnimator.SetTrigger("IsDeath");
+        playerRigidbody.velocity = Vector2.zero;
+        playerRigidbody.isKinematic = true;
     }
 }

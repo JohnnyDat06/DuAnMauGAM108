@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: e256329102b487049a630b822846026b
+guid: a0cae0efe20ed1d41bff16fd0bf7d937
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -93,17 +93,30 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: SPA_Enemy_Right_0
+      name: Flying (46x30)_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 40
-        height: 40
+        width: 46
+        height: 30
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -111,20 +124,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bbab69ee1cc9d1d4eb277166385b6d14
-      internalID: -1257915077
+      spriteID: d3b87b1a237b7a84dab2149016839747
+      internalID: 198476283
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SPA_Enemy_Right_1
+      name: Flying (46x30)_1
       rect:
         serializedVersion: 2
-        x: 40
+        x: 46
         y: 0
-        width: 40
-        height: 40
+        width: 46
+        height: 30
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -132,20 +145,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 84b359ea8d2e21a43867bece4fa654d3
-      internalID: -1584830237
+      spriteID: 90e510bf0f01f9740bf98b08f2f0d9f6
+      internalID: -1744805102
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SPA_Enemy_Right_2
+      name: Flying (46x30)_2
       rect:
         serializedVersion: 2
-        x: 80
+        x: 92
         y: 0
-        width: 40
-        height: 40
+        width: 46
+        height: 30
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -153,20 +166,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eb32af4bee653534c810d2a501dc527e
-      internalID: -1778968636
+      spriteID: b7c026abe6d20a24cb6e614bdd4dc62c
+      internalID: 1848138352
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SPA_Enemy_Right_3
+      name: Flying (46x30)_3
       rect:
         serializedVersion: 2
-        x: 120
+        x: 138
         y: 0
-        width: 40
-        height: 40
+        width: 46
+        height: 30
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -174,20 +187,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 36924f46069f8f94785ce28a65ef6e35
-      internalID: -1325213222
+      spriteID: ab7310981d96cbe48b3d5c2152fa8ab3
+      internalID: -1288377642
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SPA_Enemy_Right_4
+      name: Flying (46x30)_4
       rect:
         serializedVersion: 2
-        x: 160
+        x: 184
         y: 0
-        width: 40
-        height: 40
+        width: 46
+        height: 30
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -195,20 +208,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6e7726f410ee3f84495c6739d4c46b7c
-      internalID: 26855494
+      spriteID: a6d0a31190503f04eb8784b9135c1c72
+      internalID: 66972588
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SPA_Enemy_Right_5
+      name: Flying (46x30)_5
       rect:
         serializedVersion: 2
-        x: 200
+        x: 230
         y: 0
-        width: 40
-        height: 40
+        width: 46
+        height: 30
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -216,8 +229,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d8955fd0026ec6b46b29969cae0b079b
-      internalID: 946072973
+      spriteID: eabf32a7eb0afe34592061e44838c38c
+      internalID: -1222546883
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Flying (46x30)_6
+      rect:
+        serializedVersion: 2
+        x: 276
+        y: 0
+        width: 46
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a06b535776efff143856fd723c7a9b1e
+      internalID: 731982329
       vertices: []
       indices: 
       edges: []
@@ -233,12 +267,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      SPA_Enemy_Right_0: -1257915077
-      SPA_Enemy_Right_1: -1584830237
-      SPA_Enemy_Right_2: -1778968636
-      SPA_Enemy_Right_3: -1325213222
-      SPA_Enemy_Right_4: 26855494
-      SPA_Enemy_Right_5: 946072973
+      Flying (46x30)_0: 198476283
+      Flying (46x30)_1: -1744805102
+      Flying (46x30)_2: 1848138352
+      Flying (46x30)_3: -1288377642
+      Flying (46x30)_4: 66972588
+      Flying (46x30)_5: -1222546883
+      Flying (46x30)_6: 731982329
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

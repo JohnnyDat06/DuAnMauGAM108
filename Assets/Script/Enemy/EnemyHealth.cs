@@ -39,7 +39,7 @@ public class EnemyHealth : MonoBehaviour
 
         isDead = true;
 
-        //if (anim != null) anim.SetTrigger("IsDead");
+        if (anim != null) anim.SetTrigger("IsDead");
 
         foreach (var component in GetComponents<MonoBehaviour>())
         {

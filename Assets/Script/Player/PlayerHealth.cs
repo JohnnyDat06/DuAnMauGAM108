@@ -22,9 +22,9 @@ public class PlayerHealth : MonoBehaviour
     public void TakeDamage(float _damage)
     {
         if (isDead) return;
-        currentHeath = Mathf.Clamp(currentHeath - _damage, 0, startHealth);// chỉ xảy ra số trong kh
+        currentHeath = Mathf.Clamp(currentHeath - _damage, 0, startHealth);
         if (currentHeath <= 0 && !isDead)
-        {
+        {           
             StartCoroutine(HandleDeathSequence());
         }
 
@@ -33,7 +33,7 @@ public class PlayerHealth : MonoBehaviour
     private IEnumerator HandleDeathSequence()
     {
         isDead = true;
-
+        if(playerMovement != null) playerMovement.TriggerDeathAnimation();
         yield return new WaitForSeconds(deathAnimationDuration);
         gameManager.GameOver();
     }
