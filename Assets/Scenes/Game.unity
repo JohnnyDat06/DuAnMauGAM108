@@ -28390,6 +28390,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1720494932}
     m_Modifications:
+    - target: {fileID: 2765991863046537866, guid: 16d5d447f70e2ff449e313e6c2b1a159, type: 3}
+      propertyPath: attackRange
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 3548155328980925618, guid: 16d5d447f70e2ff449e313e6c2b1a159, type: 3}
       propertyPath: m_Name
       value: Bat

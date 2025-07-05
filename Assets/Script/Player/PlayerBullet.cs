@@ -27,5 +27,9 @@ public class PlayerBullet : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        else if(!collider.isTrigger)
+        {
+            Destroy(gameObject);
+        }
     }
 }
